@@ -6,9 +6,12 @@ public class Room {
   EnvironmentGenerator environmentGenerator = new EnvironmentGenerator();
   Interface userInterface = new Interface();
 
+
+
   public void room1() throws IOException {
     //East or South
-    environmentGenerator.forest();
+    /*forest1.getNumber();
+    System.out.println(forest1.getDescription());*/
     userInterface.timeToMove();
     if (userInterface.in.contains("E")) {
       room2();
@@ -131,6 +134,7 @@ public class Room {
     }
     room9();
   }
+
 
 
 }
