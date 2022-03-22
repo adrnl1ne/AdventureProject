@@ -17,6 +17,7 @@ public class Controller {
   }
 
   public void run() throws InterruptedException{
+    System.out.println("fuck");
     roomController.createMap();
     userInterface.greetPlayer();
     chooseClass();
