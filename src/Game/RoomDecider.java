@@ -1,33 +1,46 @@
 package Game;
 
-import java.io.IOException;
-import java.nio.file.Path;
-
 public class RoomDecider {
-  RandomGenerator randomGenerator = new RandomGenerator();
-  EnvironmentGenerator environmentGenerator = new EnvironmentGenerator();
-  Room room = new Room();
-  private int dice;
+  int dice;
 
-  public void decideRoom() throws IOException {
-    chooseRoom(randomGenerator);
+  public void chooseRoom(RandomGenerator randomGenerator) {
+    dice = returnDice(randomGenerator);
   }
 
-  public void chooseRoom(RandomGenerator randomGenerator) throws IOException {
-   dice = randomGenerator.callRoomDice();
-    if (dice == 4) {
-      //Call room 9
-      room.room9();
-    } else if (dice == 3) {
-      //Call room 7
-      room.room7();
-    } else if (dice == 2) {
-      //Call room 3
-      room.room3();
+  public int returnDice(RandomGenerator randomGenerator) {
+    return randomGenerator.callRoomDice();
+  }
+
+  Room forest(Room currentRoom) {
+    if (currentRoom.getNorth() != null) {
+      return currentRoom.getNorth();
     } else {
-      //Call room 1
-      room.room1();
+      return currentRoom;
     }
   }
 
+  Room forest2(Room currentRoom) {
+    if (currentRoom.getSouth() != null) {
+      return currentRoom.getSouth();
+    } else {
+      return currentRoom;
+    }
+  }
+
+  Room meadows(Room currentRoom) {
+    if (currentRoom.getEast() != null) {
+      return currentRoom.getEast();
+    } else {
+      return currentRoom;
+    }
+  }
+
+  Room meadows2(Room currentRoom) {
+    if (currentRoom.getWest() != null) {
+      return currentRoom.getWest();
+    } else {
+      return currentRoom;
+    }
+  }
 }
+

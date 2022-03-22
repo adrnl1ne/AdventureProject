@@ -13,47 +13,90 @@ public class EnvironmentGenerator {
   Path meadows = Path.of("Rooms\\meadows.txt");
   Path mountains = Path.of("Rooms\\mountains.txt");
   Path village = Path.of("Rooms\\village.txt");
+  Path theVoid = Path.of("Rooms\\theVoid.txt");
+  Path exploreForest = Path.of("Rooms\\exploreForest.txt");
+  Path exploreDeepForest = Path.of("Rooms\\exploreDeepForest.txt");
+  Path exploreForest2 = Path.of("Rooms\\exploreForest2.txt");
+  Path exploreLake = Path.of("Rooms\\exploreLake.txt");
+  Path exploreCave = Path.of("Rooms\\exploreCave.txt");
+  Path exploreVillage = Path.of("Rooms\\exploreVillage.txt");
+  Path exploreMeadows = Path.of("Rooms\\exploreMeadows.txt");
+  Path exploreMountains = Path.of("Rooms\\exploreMountains.txt");
+  Path exploreMeadows2 = Path.of("Rooms\\exploreMeadows2.txt");
 
 
-
-  public void forest() throws IOException {
-    //boar
-    String str = Files.readString(forest);
-    System.out.println(str);
+  public String theVoid() throws IOException {
+    //the void
+    return Files.readString(theVoid);
   }
 
-  public void deepForest() throws IOException {
+  public String forest() throws IOException {
+    return Files.readString(forest);
+  }
+
+  public String deepForest() throws IOException {
     //big ass spider
-    String str = Files.readString(deepForest);
-    System.out.println(str);
+    return Files.readString(deepForest);
   }
 
-  public void cave() throws IOException {
+  public String cave() throws IOException {
     //white dragon
-    String str = Files.readString(cave);
-    System.out.println(str);
+    return Files.readString(cave);
   }
 
-  public void meadow() throws IOException {
-    String str = Files.readString(meadows);
-    System.out.println(str);
+  public String meadow() throws IOException {
+    return Files.readString(meadows);
   }
 
-  public void mountains() throws IOException {
+  public String mountains() throws IOException {
     //yeti
-    String str = Files.readString(mountains);
-    System.out.println(str);
+    return Files.readString(mountains);
   }
 
-  public void abandonedVillage() throws IOException {
-    String str = Files.readString(village);
-    System.out.println(str);
+  public String abandonedVillage() throws IOException {
+    return Files.readString(village);
   }
 
-  public void lake() throws IOException {
+  public String lake() throws IOException {
     //Nessie
-    String str = Files.readString(lake);
-    System.out.println(str);
+    return Files.readString(lake);
   }
 
+  public String exploreForest1() throws IOException {
+    //boar
+    return Files.readString(exploreForest);
+  }
+
+  public String exploreDeepForest() throws IOException {
+    return Files.readString(exploreDeepForest);
+  }
+
+  public String exploreForest2() throws IOException {
+    return Files.readString(exploreForest2);
+  }
+
+  public String exploreLake() throws IOException {
+    //nessie
+    return Files.readString(exploreLake);
+  }
+
+  public String exploreCave() throws IOException {
+    return Files.readString(exploreCave);
+  }
+
+  public String exploreVillage() throws IOException {
+    return Files.readString(exploreVillage);
+  }
+
+  public String exploreMeadows() throws IOException {
+    return Files.readString(exploreMeadows);
+  }
+
+  public String exploreMountains() throws IOException {
+    return Files.readString(exploreMountains);
+  }
+
+  public String exploreMeadows2() throws IOException {
+    return Files.readString(exploreMeadows2);
+  }
 }
