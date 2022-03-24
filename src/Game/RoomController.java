@@ -54,7 +54,7 @@ public class RoomController {
   Room exploreMountains = new Room(8, environmentGenerator.exploreMountains());
   Room exploreMeadows2 = new Room(9, environmentGenerator.exploreMeadows2());
 
-  Room currentRoom = preSpawn;
+  private Room currentRoom = preSpawn;
   Room currentExplore = exploreForest;
 
   public RoomController() throws IOException {

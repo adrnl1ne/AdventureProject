@@ -47,10 +47,10 @@ public class Controller {
 
     userInterface.callUserInput();
     switch (userInterface.in) {
-      case "north", "n" -> roomController.currentRoom = roomController.goNorth();
-      case "south", "s" -> roomController.currentRoom = roomController.goSouth();
-      case "west", "w" -> roomController.currentRoom = roomController.goWest();
-      case "east", "e" -> roomController.currentRoom = roomController.goEast();
+      case "north", "n" -> roomController.setCurrentRoom(roomController.goNorth());
+      case "south", "s" -> roomController.setCurrentRoom(roomController.goSouth());
+      case "west", "w" -> roomController.setCurrentRoom(roomController.goWest());
+      case "east", "e" -> roomController.setCurrentRoom(roomController.goEast());
     }
   }
 
