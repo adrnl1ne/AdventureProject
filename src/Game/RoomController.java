@@ -84,11 +84,11 @@ public class RoomController {
     room4.setNorth(room1);
     room4.setSouth(room7);
     //Room5
-    room6.setSouth(room8);
+    room5.setSouth(room8);
     //Room6
-    room5.setNorth(room3);
+    room6.setNorth(room3);
     //cave.setEast(null);
-    room5.setSouth(room9);
+    room6.setSouth(room9);
     //Room7
     room7.setNorth(room4);
     room7.setEast(room8);

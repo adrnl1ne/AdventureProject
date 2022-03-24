@@ -44,7 +44,13 @@ public class Controller {
 
 
   public void travel() {
-
+    System.out.println("""
+        In which direction do you wish to travel?
+        North
+        South
+        East
+        West
+        """);
     userInterface.callUserInput();
     switch (userInterface.in) {
       case "north", "n" -> roomController.setCurrentRoom(roomController.goNorth());
