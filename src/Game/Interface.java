@@ -67,10 +67,12 @@ public class Interface {
     System.out.println("""
         Welcome to the help menu!
         Type:
-        Travel or T, for Travel
-        Stats or S, for Checking Stats
-        Inventory or I, for Checking Inventory
-        Exit or E, for Exit
+         explore   = Looking around at the current location
+         travel    = Traveling
+         stats     = Checking Stats
+         inventory = Checking Inventory
+         help      = Opens help menu
+         exit      = Exit
         """);
   }
 

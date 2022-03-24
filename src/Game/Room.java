@@ -9,7 +9,7 @@ public class Room {
   private Room east;
   private Room west;
 
-  //constructor (setter)
+  //constructor
   public Room(int number, String description) {
     this.number = number;
     this.description = description;

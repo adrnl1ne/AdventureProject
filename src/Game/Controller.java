@@ -17,7 +17,6 @@ public class Controller {
   }
 
   public void run() throws InterruptedException{
-    System.out.println("fuck");
     roomController.createMap();
     userInterface.greetPlayer();
     chooseClass();
@@ -25,7 +24,7 @@ public class Controller {
     roomDecider.chooseRoom(randomGenerator);
     startingRoom(roomController.currentRoom);
     while (isRunning) {
-      System.out.println(roomController.currentRoom.getDescription());
+      System.out.println(roomController.getCurrentRoom().getDescription());
       roomController.exploreChecker();
       menu();
     }
@@ -57,10 +56,10 @@ public class Controller {
 
   public void startingRoom(Room currentRoom) {
     switch (roomDecider.dice) {
-      case 4 -> roomController.currentRoom = roomDecider.meadows2(currentRoom);
-      case 3 -> roomController.currentRoom = roomDecider.meadows(currentRoom);
-      case 2 -> roomController.currentRoom = roomDecider.forest2(currentRoom);
-      case 1 -> roomController.currentRoom = roomDecider.forest(currentRoom);
+      case 4 -> roomController.setCurrentRoom(roomDecider.meadows2(currentRoom));
+      case 3 -> roomController.setCurrentRoom(roomDecider.meadows(currentRoom));
+      case 2 -> roomController.setCurrentRoom(roomDecider.forest2(currentRoom));
+      case 1 -> roomController.setCurrentRoom(roomDecider.forest(currentRoom));
     }
   }
 

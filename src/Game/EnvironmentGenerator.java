@@ -14,6 +14,9 @@ public class EnvironmentGenerator {
   Path mountains = Path.of("Rooms\\mountains.txt");
   Path village = Path.of("Rooms\\village.txt");
   Path theVoid = Path.of("Rooms\\theVoid.txt");
+
+  Path blank = Path.of("Rooms\\blank.txt");
+
   Path exploreForest = Path.of("Rooms\\exploreForest.txt");
   Path exploreDeepForest = Path.of("Rooms\\exploreDeepForest.txt");
   Path exploreForest2 = Path.of("Rooms\\exploreForest2.txt");
@@ -24,6 +27,10 @@ public class EnvironmentGenerator {
   Path exploreMountains = Path.of("Rooms\\exploreMountains.txt");
   Path exploreMeadows2 = Path.of("Rooms\\exploreMeadows2.txt");
 
+
+  public String blank() throws IOException {
+    return Files.readString(blank);
+  }
 
   public String theVoid() throws IOException {
     //the void
