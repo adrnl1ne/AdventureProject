@@ -106,42 +106,6 @@ public class Interface {
     callUserInput();
   }
 
-  Room goNorth(Room currentRoom) {
-    if (currentRoom.getNorth() != null) {
-      return currentRoom.getNorth();
-    } else {
-      System.out.println("You cant go that way!");
-      return currentRoom;
-    }
-  }
-
-  Room goSouth(Room currentRoom) {
-    if (currentRoom.getSouth() != null) {
-      return currentRoom.getSouth();
-    } else {
-      System.out.println("You cant go that way!");
-      return currentRoom;
-    }
-  }
-
-  Room goEast(Room currentRoom) {
-    if (currentRoom.getEast() != null) {
-      return currentRoom.getEast();
-    } else {
-      System.out.println("You cant go that way!");
-      return currentRoom;
-    }
-  }
-
-  Room goWest(Room currentRoom) {
-    if (currentRoom.getWest() != null) {
-      return currentRoom.getWest();
-    } else {
-      System.out.println("You cant go that way!");
-      return currentRoom;
-    }
-  }
-
 
 }
 

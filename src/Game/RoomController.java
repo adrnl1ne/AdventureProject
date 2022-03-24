@@ -60,6 +60,7 @@ public class RoomController {
   public RoomController() throws IOException {
   }
 
+
   public Room getCurrentRoom() {
     return currentRoom;
   }
@@ -200,4 +201,42 @@ public class RoomController {
     }
   }
 
+
+  Room goNorth() {
+    if (currentRoom.getNorth() != null) {
+      return currentRoom.getNorth();
+    } else {
+      System.out.println("You cant go that way!");
+      return currentRoom;
+    }
   }
+
+  Room goSouth() {
+    if (currentRoom.getSouth() != null) {
+      return currentRoom.getSouth();
+    } else {
+      System.out.println("You cant go that way!");
+      return currentRoom;
+    }
+  }
+
+  Room goEast() {
+    if (currentRoom.getEast() != null) {
+      return currentRoom.getEast();
+    } else {
+      System.out.println("You cant go that way!");
+      return currentRoom;
+    }
+  }
+
+  Room goWest() {
+    if (currentRoom.getWest() != null) {
+      return currentRoom.getWest();
+    } else {
+      System.out.println("You cant go that way!");
+      return currentRoom;
+    }
+  }
+
+
+}

@@ -22,7 +22,7 @@ public class Controller {
     chooseClass();
     inventory.giveStarterItems(playerInfo);
     roomDecider.chooseRoom(randomGenerator);
-    startingRoom(roomController.currentRoom);
+    startingRoom(roomController.getCurrentRoom());
     while (isRunning) {
       System.out.println(roomController.getCurrentRoom().getDescription());
       roomController.exploreChecker();
@@ -33,7 +33,7 @@ public class Controller {
   public void menu() {
     userInterface.doStuff();
     switch (userInterface.in) {
-      case "travel" -> travel(roomController.currentRoom);
+      case "travel" -> travel();
       case "explore" -> encounter.encounter(roomController);
       case "stats" -> playerInfo.checkStats();
       case "inventory" -> inventory.checkInventory();
@@ -43,14 +43,14 @@ public class Controller {
   }
 
 
-  public void travel(Room currentRoom) {
+  public void travel() {
 
     userInterface.callUserInput();
     switch (userInterface.in) {
-      case "north", "n" -> roomController.currentRoom = userInterface.goNorth(currentRoom);
-      case "south", "s" -> roomController.currentRoom = userInterface.goSouth(currentRoom);
-      case "west", "w" -> roomController.currentRoom = userInterface.goWest(currentRoom);
-      case "east", "e" -> roomController.currentRoom = userInterface.goEast(currentRoom);
+      case "north", "n" -> roomController.currentRoom = roomController.goNorth();
+      case "south", "s" -> roomController.currentRoom = roomController.goSouth();
+      case "west", "w" -> roomController.currentRoom = roomController.goWest();
+      case "east", "e" -> roomController.currentRoom = roomController.goEast();
     }
   }
 
