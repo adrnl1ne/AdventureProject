@@ -5,8 +5,7 @@ public class Item {
   private int dmg;
   private int def;
 
-  public Item(String itemClass, int dmg, int def) {
-    this.itemClass = itemClass;
+  public Item(int dmg, int def) {
     this.dmg = dmg;
     this.def = def;
   }

@@ -2,7 +2,7 @@ package Game;
 
 import java.io.IOException;
 
-public class RoomController {
+public class Map {
 
   EnvironmentGenerator environmentGenerator = new EnvironmentGenerator();
 
@@ -57,7 +57,7 @@ public class RoomController {
   private Room currentRoom = preSpawn;
   Room currentExplore = exploreForest;
 
-  public RoomController() throws IOException {
+  public Map() throws IOException {
   }
 
 

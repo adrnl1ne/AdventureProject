@@ -1,6 +1,6 @@
 package Game;
 
-public class Player {
+public abstract class Player {
 
   private int hp;
   private int exp;
@@ -12,22 +12,10 @@ public class Player {
   private int intelligence;
   private int luck;
   private int lvl;
-  private String playerClass;
+  private int hitPointsModifier;
 
   //constructor
-  public Player(String playerClass, int lvl, int exp, int hp, int strength, int perception, int endurance, int charisma,
-                int intelligence, int agility, int luck) {
-    this.playerClass = playerClass;
-    this.lvl = lvl;
-    this.exp = exp;
-    this.hp = hp;
-    this.strength = strength;
-    this.perception = perception;
-    this.endurance = endurance;
-    this.charisma = charisma;
-    this.intelligence = intelligence;
-    this.agility = agility;
-    this.luck = luck;
+  public Player() {
   }
 
   public void levelPlayer(Player currentClass) {
@@ -36,6 +24,46 @@ public class Player {
       currentClass.exp = 0;
       currentClass.hp = currentClass.hp + 9;
     }
+  }
+
+  public void setLvl() {
+    this.lvl = lvl;
+  }
+
+  public void setHp(int i) {
+    this.hp = hp;
+  }
+
+  public void setExp() {
+    this.exp = exp;
+  }
+
+  public void setStrength(int strength) {
+    this.strength = strength;
+  }
+
+  public void setPerception(int perception) {
+    this.perception = perception;
+  }
+
+  public void setEndurance(int endurance) {
+    this.endurance = endurance;
+  }
+
+  public void setCharisma(int charisma) {
+    this.charisma = charisma;
+  }
+
+  public void setIntelligence(int intelligence) {
+    this.intelligence = intelligence;
+  }
+
+  public void setAgility(int agility) {
+    this.agility = agility;
+  }
+
+  public void setLuck(int luck) {
+    this.luck = luck;
   }
 
   public int getLvl() {
@@ -78,15 +106,20 @@ public class Player {
     return luck;
   }
 
-  public String getPlayerClass() {
-    return playerClass;
+
+  public int getHitPointsModifier() {
+    return hitPointsModifier;
+  }
+
+  public void setHitPointsModifier(int hitPointsModifier) {
+    this.hitPointsModifier = hitPointsModifier;
   }
 
 
   @Override
   public String toString() {
-    return "Class: " + playerClass +
-        "\nHit Points: " + hp +
+    return
+        "Hit Points: " + hp +
         "\nLevel: " + lvl +
         "\nExperience: " + exp +
         "\nStrength: " + strength +

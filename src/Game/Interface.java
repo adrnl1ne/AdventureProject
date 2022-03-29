@@ -6,14 +6,22 @@ import java.util.Scanner;
 
 public class Interface {
   Scanner input = new Scanner(System.in);
-  String in;
+  private String in;
+  private int introInput;
 
-  public void greetPlayer() throws InterruptedException {
+  public void greetPlayer() {
+    // TODO: 29-03-2022 implement background music
+    //playMusic.playMusic();
     System.out.println("""
-        Welcome to the adventure game!
-        Are you ready to play?""");
-    callUserInput();
-    checkForReady();
+        Welcome to the AMAZING GAME OF ADVENTURE TIME!
+        please choose what you would like to do
+        1) Embark on your epic adventure 
+        2) End your adventure 
+        3) help menu");
+        
+        """);
+    //introInput = input.nextInt();
+    //startMenu();
   }
 
   public String getUserInput() {
@@ -22,25 +30,6 @@ public class Interface {
 
   public void callUserInput() {
     in = getUserInput();
-  }
-
-  public void checkForReady() throws InterruptedException {
-    if (in.contains("y")) {
-      System.out.println("Great, let's get started!");
-      Thread.sleep(1500);
-      System.out.println("""
-                    
-                    
-                    
-                    
-                    
-                    
-          """);
-    } else {
-      System.out.println("I'm sorry to hear that...");
-      Thread.sleep(1500);
-      greetPlayer();
-    }
   }
 
   public void doStuff() {
@@ -103,7 +92,12 @@ public class Interface {
         Ranger
         Bard
         """);
-    callUserInput();
+  }
+
+
+  public void startMenu() {
+    /*switch (introInput) {
+      case 1 ->*/
   }
 
 

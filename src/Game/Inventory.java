@@ -1,32 +1,38 @@
 package Game;
 
-import java.util.ArrayList;
-import java.util.List;
+import Game.PlayerClasses.Bard;
+import Game.PlayerClasses.Warrior;
+
+import java.util.HashMap;
 
 public class Inventory {
 
-  String[] items = {""};
+  // TODO: 25-03-2022 convert arraylist to hashmap
+  HashMap<String, Item> allItems = new HashMap<>();
+  HashMap<String, Item> playerInventory = new HashMap<>();
 
-  ArrayList<String> playerInventory = new ArrayList<>(List.of(items));
 
-  public void checkInventory() {
-    System.out.println(playerInventory);
+  public void generateAllItems() {
+
+
+    Weapon longSword = new Weapon(2, 0);
+    Weapon orbOfFire = new Weapon(2, 0);
+    Weapon longbow = new Weapon(2, 0);
+    Weapon dagger = new Weapon(2, 0);
+    Armor shield = new Armor(0, 2);
+
+    allItems.put("longsword", longSword);
+    allItems.put("orbOfFire", orbOfFire);
+    allItems.put("longbow", longbow);
+    allItems.put("dagger", dagger);
+    allItems.put("shield", shield);
+
   }
 
-  public void giveStarterItems(PlayerInfo playerInfo) {
-    playerInventory.clear();
-    if (playerInfo.currentClass == playerInfo.warrior) {
-      playerInventory.add("Longsword");
-      playerInventory.add("Shield");
-    } else if (playerInfo.currentClass == playerInfo.mage) {
-      playerInventory.add("Bent quarter staff");
-      playerInventory.add("Orb of light");
-    } else if (playerInfo.currentClass == playerInfo.ranger) {
-      playerInventory.add("Longbow");
-      playerInventory.add("Looking glass");
-    } else if (playerInfo.currentClass == playerInfo.bard) {
-      playerInventory.add("Dagger");
-      playerInventory.add("Lute");
+
+  public void checkInventory() {
+    for (String i : playerInventory.keySet()) {
+      System.out.println(i);
     }
   }
 

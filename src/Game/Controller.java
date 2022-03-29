@@ -1,40 +1,45 @@
 package Game;
 
+import Game.PlayerClasses.Bard;
+import Game.PlayerClasses.Mage;
+import Game.PlayerClasses.Ranger;
+import Game.PlayerClasses.Warrior;
+
 import java.io.IOException;
 
 public class Controller {
   Interface userInterface = new Interface();
-  RoomController roomController = new RoomController();
+  Map map = new Map();
   RoomDecider roomDecider = new RoomDecider();
   RandomGenerator randomGenerator = new RandomGenerator();
   PlayerInfo playerInfo = new PlayerInfo();
-  Inventory inventory = new Inventory();
   Encounter encounter = new Encounter();
+  Inventory inventory = new Inventory();
 
   boolean isRunning = true;
 
   public Controller() throws IOException {
   }
 
-  public void run() throws InterruptedException{
-    roomController.createMap();
+  public void run() {
+    map.createMap();
+    inventory.generateAllItems();
     userInterface.greetPlayer();
     chooseClass();
-    inventory.giveStarterItems(playerInfo);
     roomDecider.chooseRoom(randomGenerator);
-    startingRoom(roomController.getCurrentRoom());
+    startingRoom(map.getCurrentRoom());
     while (isRunning) {
-      System.out.println(roomController.getCurrentRoom().getDescription());
-      roomController.exploreChecker();
+      System.out.println(map.getCurrentRoom().getDescription());
+      map.exploreChecker();
       menu();
     }
   }
 
   public void menu() {
     userInterface.doStuff();
-    switch (userInterface.in) {
+    switch (userInterface.getUserInput()) {
       case "travel" -> travel();
-      case "explore" -> encounter.encounter(roomController);
+      case "explore" -> encounter.encounter(map);
       case "stats" -> playerInfo.checkStats();
       case "inventory" -> inventory.checkInventory();
       case "help" -> userInterface.help();
@@ -52,30 +57,43 @@ public class Controller {
         West
         """);
     userInterface.callUserInput();
-    switch (userInterface.in) {
-      case "north", "n" -> roomController.setCurrentRoom(roomController.goNorth());
-      case "south", "s" -> roomController.setCurrentRoom(roomController.goSouth());
-      case "west", "w" -> roomController.setCurrentRoom(roomController.goWest());
-      case "east", "e" -> roomController.setCurrentRoom(roomController.goEast());
+    switch (userInterface.getUserInput()) {
+      case "north", "n" -> map.setCurrentRoom(map.goNorth());
+      case "south", "s" -> map.setCurrentRoom(map.goSouth());
+      case "west", "w" -> map.setCurrentRoom(map.goWest());
+      case "east", "e" -> map.setCurrentRoom(map.goEast());
     }
   }
 
   public void startingRoom(Room currentRoom) {
     switch (roomDecider.dice) {
-      case 4 -> roomController.setCurrentRoom(roomDecider.meadows2(currentRoom));
-      case 3 -> roomController.setCurrentRoom(roomDecider.meadows(currentRoom));
-      case 2 -> roomController.setCurrentRoom(roomDecider.forest2(currentRoom));
-      case 1 -> roomController.setCurrentRoom(roomDecider.forest(currentRoom));
+      case 4 -> map.setCurrentRoom(roomDecider.meadows2(currentRoom));
+      case 3 -> map.setCurrentRoom(roomDecider.meadows(currentRoom));
+      case 2 -> map.setCurrentRoom(roomDecider.forest2(currentRoom));
+      case 1 -> map.setCurrentRoom(roomDecider.forest(currentRoom));
     }
   }
 
   public void chooseClass() {
     userInterface.chooseClass();
-    switch (userInterface.in) {
-      case "warrior", "w" -> playerInfo.currentClass = playerInfo.warrior;
-      case "mage", "m" -> playerInfo.currentClass = playerInfo.mage;
-      case "ranger", "r" -> playerInfo.currentClass = playerInfo.ranger;
-      case "bard", "b" -> playerInfo.currentClass = playerInfo.bard;
+    switch (userInterface.getUserInput()) {
+      case "warrior", "w" -> {
+        playerInfo.setChosenClass(new Warrior());
+        inventory.playerInventory.put("Longsword", inventory.allItems.get("Longsword"));
+        inventory.playerInventory.put("Shield", inventory.allItems.get("Shield"));
+      }
+      case "mage", "m" -> {
+        playerInfo.setChosenClass(new Mage());
+        inventory.playerInventory.put("OrbOfFire", inventory.allItems.get("OrbOfFire"));
+      }
+      case "ranger", "r" -> {
+        playerInfo.setChosenClass(new Ranger());
+        inventory.playerInventory.put("Longbow", inventory.allItems.get("Longbow"));
+      }
+      case "bard", "b" -> {
+        playerInfo.setChosenClass(new Bard());
+        inventory.playerInventory.put("Dagger", inventory.allItems.get("Dagger"));
+      }
     }
   }
 }

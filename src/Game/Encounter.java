@@ -1,11 +1,9 @@
 package Game;
 
-import java.io.IOException;
-
 public class Encounter {
 
-  public void encounter(RoomController roomController){
-    System.out.println(roomController.currentExplore.getDescription());
+  public void encounter(Map map){
+    System.out.println(map.currentExplore.getDescription());
   }
 
 }
