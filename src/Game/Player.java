@@ -2,7 +2,6 @@ package Game;
 
 public abstract class Player {
 
-  private int hp;
   private int exp;
   private int strength;
   private int perception;
@@ -22,19 +21,15 @@ public abstract class Player {
     if (currentClass.getExp() == 240) {
       currentClass.lvl = currentClass.lvl + 1;
       currentClass.exp = 0;
-      currentClass.hp = currentClass.hp + 9;
+      currentClass.hitPointsModifier = currentClass.hitPointsModifier + 9;
     }
   }
 
-  public void setLvl() {
+  public void setLvl(int lvl) {
     this.lvl = lvl;
   }
 
-  public void setHp(int i) {
-    this.hp = hp;
-  }
-
-  public void setExp() {
+  public void setExp(int exp) {
     this.exp = exp;
   }
 
@@ -62,6 +57,10 @@ public abstract class Player {
     this.agility = agility;
   }
 
+  public void setHitPointsModifier(int hitPointsModifier) {
+    this.hitPointsModifier = hitPointsModifier;
+  }
+
   public void setLuck(int luck) {
     this.luck = luck;
   }
@@ -72,10 +71,6 @@ public abstract class Player {
 
   public int getExp() {
     return exp;
-  }
-
-  public int getHp() {
-    return hp;
   }
 
   public int getAgility() {
@@ -111,24 +106,20 @@ public abstract class Player {
     return hitPointsModifier;
   }
 
-  public void setHitPointsModifier(int hitPointsModifier) {
-    this.hitPointsModifier = hitPointsModifier;
-  }
-
 
   @Override
   public String toString() {
     return
-        "Hit Points: " + hp +
-        "\nLevel: " + lvl +
-        "\nExperience: " + exp +
-        "\nStrength: " + strength +
-        "\nPerception: " + perception +
-        "\nEndurance: " + endurance +
-        "\nCharisma: " + charisma +
-        "\nIntelligence: " + intelligence +
-        "\nAgility: " + agility +
-        "\nLuck: " + luck;
+        "Hit Points: " + getHitPointsModifier() +
+            "\nLevel: " + getLvl() +
+            "\nExperience: " + getExp() +
+            "\nStrength: " + getStrength() +
+            "\nPerception: " + getPerception() +
+            "\nEndurance: " + getEndurance() +
+            "\nCharisma: " + getCharisma() +
+            "\nIntelligence: " + getIntelligence() +
+            "\nAgility: " + getAgility() +
+            "\nLuck: " + getLuck();
   }
 
 }

@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class Interface {
   Scanner input = new Scanner(System.in);
-  private String in;
   private int introInput;
 
   public void greetPlayer() {
@@ -17,8 +16,7 @@ public class Interface {
         please choose what you would like to do
         1) Embark on your epic adventure 
         2) End your adventure 
-        3) help menu");
-        
+        3) help menu");        
         """);
     //introInput = input.nextInt();
     //startMenu();
@@ -26,15 +24,6 @@ public class Interface {
 
   public String getUserInput() {
     return input.nextLine().toLowerCase(Locale.ROOT);
-  }
-
-  public void callUserInput() {
-    in = getUserInput();
-  }
-
-  public void doStuff() {
-    chooseAction();
-    travelOrExplore();
   }
 
   public void chooseAction() {
@@ -49,7 +38,6 @@ public class Interface {
         Exit
         """);
     //System.out.println("Rest");
-    callUserInput();
   }
 
   public void help() {
@@ -62,22 +50,6 @@ public class Interface {
          inventory = Checking Inventory
          help      = Opens help menu
          exit      = Exit
-        """);
-  }
-
-  public void travelOrExplore() {
-    if (in.equals("Travel")) {
-      chooseDirection();
-    }
-  }
-
-  public void chooseDirection() {
-    System.out.println("""
-        In which direction do you want to travel?
-        North
-        South
-        East
-        West
         """);
   }
 

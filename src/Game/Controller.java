@@ -36,7 +36,7 @@ public class Controller {
   }
 
   public void menu() {
-    userInterface.doStuff();
+    userInterface.chooseAction();
     switch (userInterface.getUserInput()) {
       case "travel" -> travel();
       case "explore" -> encounter.encounter(map);
@@ -56,7 +56,6 @@ public class Controller {
         East
         West
         """);
-    userInterface.callUserInput();
     switch (userInterface.getUserInput()) {
       case "north", "n" -> map.setCurrentRoom(map.goNorth());
       case "south", "s" -> map.setCurrentRoom(map.goSouth());
