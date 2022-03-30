@@ -1,4 +1,4 @@
-package Game;
+package Game.MapStuff;
 
 import java.io.IOException;
 
@@ -69,6 +69,9 @@ public class Map {
     this.currentRoom = room;
   }
 
+  public Room getCurrentExplore() {
+    return currentExplore;
+  }
 
   public void createMap() {
     //Room1
@@ -202,7 +205,7 @@ public class Map {
   }
 
 
-  Room goNorth() {
+  public Room goNorth() {
     if (currentRoom.getNorth() != null) {
       return currentRoom.getNorth();
     } else {
@@ -211,7 +214,7 @@ public class Map {
     }
   }
 
-  Room goSouth() {
+  public Room goSouth() {
     if (currentRoom.getSouth() != null) {
       return currentRoom.getSouth();
     } else {
@@ -220,7 +223,7 @@ public class Map {
     }
   }
 
-  Room goEast() {
+  public Room goEast() {
     if (currentRoom.getEast() != null) {
       return currentRoom.getEast();
     } else {
@@ -229,7 +232,7 @@ public class Map {
     }
   }
 
-  Room goWest() {
+  public Room goWest() {
     if (currentRoom.getWest() != null) {
       return currentRoom.getWest();
     } else {

@@ -1,7 +1,8 @@
 package Game;
 
-import Game.PlayerClasses.Bard;
-import Game.PlayerClasses.Warrior;
+import Game.Items.Armor;
+import Game.Items.Item;
+import Game.Items.Weapon;
 
 import java.util.HashMap;
 

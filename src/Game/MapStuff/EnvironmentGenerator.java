@@ -1,4 +1,4 @@
-package Game;
+package Game.MapStuff;
 
 
 import java.io.IOException;

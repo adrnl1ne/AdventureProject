@@ -1,7 +1,14 @@
-package Game;
+package Game.MapStuff;
+
+
+import Game.RandomGenerator;
 
 public class RoomDecider {
   int dice;
+
+  public int getDice() {
+    return dice;
+  }
 
   public void chooseRoom(RandomGenerator randomGenerator) {
     dice = returnDice(randomGenerator);
@@ -11,7 +18,7 @@ public class RoomDecider {
     return randomGenerator.callRoomDice();
   }
 
-  Room forest(Room currentRoom) {
+ public Room forest(Room currentRoom) {
     if (currentRoom.getNorth() != null) {
       return currentRoom.getNorth();
     } else {
@@ -19,7 +26,7 @@ public class RoomDecider {
     }
   }
 
-  Room forest2(Room currentRoom) {
+ public Room forest2(Room currentRoom) {
     if (currentRoom.getSouth() != null) {
       return currentRoom.getSouth();
     } else {
@@ -27,7 +34,7 @@ public class RoomDecider {
     }
   }
 
-  Room meadows(Room currentRoom) {
+  public Room meadows(Room currentRoom) {
     if (currentRoom.getEast() != null) {
       return currentRoom.getEast();
     } else {
@@ -35,7 +42,7 @@ public class RoomDecider {
     }
   }
 
-  Room meadows2(Room currentRoom) {
+ public Room meadows2(Room currentRoom) {
     if (currentRoom.getWest() != null) {
       return currentRoom.getWest();
     } else {

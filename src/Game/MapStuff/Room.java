@@ -1,4 +1,4 @@
-package Game;
+package Game.MapStuff;
 
 public class Room {
 
@@ -31,28 +31,28 @@ public class Room {
     this.west = west;
   }
 
-  Room getNorth() {
+  public Room getNorth() {
     return north;
   }
 
-  Room getSouth() {
+  public Room getSouth() {
     return south;
   }
 
-  Room getEast() {
+  public Room getEast() {
     return east;
   }
 
-  Room getWest() {
+  public Room getWest() {
     return west;
   }
 
   //getter
-  String getDescription() {
+  public String getDescription() {
     return description;
   }
 
-  int getNumber() {
+  public int getNumber() {
     return number;
   }
 

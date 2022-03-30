@@ -1,5 +1,8 @@
 package Game;
 
+import Game.MapStuff.Map;
+import Game.MapStuff.Room;
+import Game.MapStuff.RoomDecider;
 import Game.PlayerClasses.Bard;
 import Game.PlayerClasses.Mage;
 import Game.PlayerClasses.Ranger;
@@ -65,7 +68,7 @@ public class Controller {
   }
 
   public void startingRoom(Room currentRoom) {
-    switch (roomDecider.dice) {
+    switch (roomDecider.getDice()) {
       case 4 -> map.setCurrentRoom(roomDecider.meadows2(currentRoom));
       case 3 -> map.setCurrentRoom(roomDecider.meadows(currentRoom));
       case 2 -> map.setCurrentRoom(roomDecider.forest2(currentRoom));

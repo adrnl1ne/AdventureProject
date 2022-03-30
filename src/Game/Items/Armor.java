@@ -1,4 +1,6 @@
-package Game;
+package Game.Items;
+
+
 
 public class Armor extends Item {
 
