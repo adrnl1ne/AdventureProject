@@ -35,8 +35,8 @@ public class Controller {
     roomDecider.chooseRoom(randomGenerator);
     map.setMap();
     startingRoom(map.getCurrentRoom());
-    map.discoverRoom(map.getCurrentRoom());
     while (isRunning) {
+      map.discoverRoom(map.getCurrentRoom());
       System.out.println(map.getCurrentRoom().getDescription());
       map.exploreChecker();
       menu();
@@ -60,16 +60,16 @@ public class Controller {
   public void travel() {
     System.out.println("""
         In which direction do you wish to travel?
-        North
-        South
-        East
-        West
+        1) North
+        2) South
+        3) East
+        4) West
         """);
-    switch (userInterface.getUserInput()) {
-      case "north", "n" -> map.setCurrentRoom(map.goNorth());
-      case "south", "s" -> map.setCurrentRoom(map.goSouth());
-      case "west", "w" -> map.setCurrentRoom(map.goWest());
-      case "east", "e" -> map.setCurrentRoom(map.goEast());
+    switch (userInterface.getIntInput()) {
+      case 1 -> map.setCurrentRoom(map.goNorth());
+      case 2 -> map.setCurrentRoom(map.goSouth());
+      case 3 -> map.setCurrentRoom(map.goEast());
+      case 4 -> map.setCurrentRoom(map.goWest());
     }
   }
 
@@ -84,20 +84,20 @@ public class Controller {
 
   public void chooseClass() {
     userInterface.chooseClass();
-    switch (userInterface.getUserInput()) {
-      case "warrior", "w" -> {
+    switch (userInterface.getIntInput()) {
+      case 1 -> {
         playerInfo.setChosenClass(new Warrior());
         inventory.startItemsWarrior();
       }
-      case "mage", "m" -> {
+      case 2 -> {
         playerInfo.setChosenClass(new Mage());
         inventory.startItemsMage();
       }
-      case "ranger", "r" -> {
+      case 3 -> {
         playerInfo.setChosenClass(new Ranger());
         inventory.startItemsRanger();
       }
-      case "bard", "b" -> {
+      case 4 -> {
         playerInfo.setChosenClass(new Bard());
         inventory.startItemsBard();
       }

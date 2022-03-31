@@ -119,7 +119,7 @@ public class Map {
     //Room7
     room7.setNorth(room4);
     room7.setEast(room8);
-    room7.setY(6);
+    room7.setX(6);
     room7.setY(6);
     //Room8
     room8.setNorth(room5);
