@@ -1,11 +1,11 @@
-package Game.PlayerClasses;
+package Game.Player.PlayerClasses;
 
-import Game.Player;
+import Game.Player.Player;
 import Game.RandomGenerator;
 
-public class Ranger extends Player {
+public class Mage extends Player {
   RandomGenerator randomGenerator = new RandomGenerator();
-  public Ranger() {
+  public Mage() {
     super();
     setLvl(1);
     setExp(0);
@@ -16,6 +16,6 @@ public class Ranger extends Player {
     setIntelligence(randomGenerator.stat());
     setAgility(randomGenerator.stat());
     setLuck(randomGenerator.stat());
-    setHitPointsModifier(randomGenerator.hpRanger()+(getEndurance()-10)/2);
+    setHitPointsModifier(randomGenerator.hpMage()+(getEndurance()-10)/2);
   }
 }

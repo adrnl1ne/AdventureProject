@@ -1,4 +1,6 @@
-package Game;
+package Game.Player;
+
+
 
 public class PlayerInfo {
   //s,p,e,c,i,a,l

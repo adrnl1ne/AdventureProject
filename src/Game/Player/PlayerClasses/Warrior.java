@@ -1,6 +1,6 @@
-package Game.PlayerClasses;
+package Game.Player.PlayerClasses;
 
-import Game.Player;
+import Game.Player.Player;
 import Game.RandomGenerator;
 
 public class Warrior extends Player {

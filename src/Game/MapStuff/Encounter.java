@@ -1,6 +1,6 @@
-package Game;
+package Game.MapStuff;
 
-import Game.MapStuff.Map;
+
 
 public class Encounter {
 

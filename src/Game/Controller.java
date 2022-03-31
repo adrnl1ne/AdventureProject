@@ -1,12 +1,15 @@
 package Game;
 
+import Game.Items.Inventory;
+import Game.MapStuff.Encounter;
 import Game.MapStuff.Map;
 import Game.MapStuff.Room;
 import Game.MapStuff.RoomDecider;
-import Game.PlayerClasses.Bard;
-import Game.PlayerClasses.Mage;
-import Game.PlayerClasses.Ranger;
-import Game.PlayerClasses.Warrior;
+import Game.Player.PlayerInfo;
+import Game.Player.PlayerClasses.Bard;
+import Game.Player.PlayerClasses.Mage;
+import Game.Player.PlayerClasses.Ranger;
+import Game.Player.PlayerClasses.Warrior;
 
 import java.io.IOException;
 
@@ -81,21 +84,21 @@ public class Controller {
     switch (userInterface.getUserInput()) {
       case "warrior", "w" -> {
         playerInfo.setChosenClass(new Warrior());
-        inventory.playerInventory.put("Longsword", inventory.allItems.get("Longsword"));
-        inventory.playerInventory.put("Shield", inventory.allItems.get("Shield"));
+        inventory.startItemsWarrior();
       }
       case "mage", "m" -> {
         playerInfo.setChosenClass(new Mage());
-        inventory.playerInventory.put("OrbOfFire", inventory.allItems.get("OrbOfFire"));
+        inventory.startItemsMage();
       }
       case "ranger", "r" -> {
         playerInfo.setChosenClass(new Ranger());
-        inventory.playerInventory.put("Longbow", inventory.allItems.get("Longbow"));
+        inventory.startItemsRanger();
       }
       case "bard", "b" -> {
         playerInfo.setChosenClass(new Bard());
-        inventory.playerInventory.put("Dagger", inventory.allItems.get("Dagger"));
+        inventory.startItemsBard();
       }
+
     }
   }
 }

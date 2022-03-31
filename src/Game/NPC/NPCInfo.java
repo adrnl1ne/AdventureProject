@@ -1,4 +1,6 @@
-package Game;
+package Game.NPC;
+
+import Game.NPC.NPC;
 
 public class NPCInfo {
   //Class
