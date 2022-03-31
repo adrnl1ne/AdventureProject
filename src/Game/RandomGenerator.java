@@ -12,6 +12,14 @@ public class RandomGenerator {
     return dice;
   }
 
+  public int twentySideDice() {
+    return random.nextInt(20) + 1;
+  }
+
+  public int eightSideDice() {
+    return random.nextInt(8) + 1;
+  }
+
   public void rollForRoom() {
     dice = random.nextInt(4) + 1;
   }
@@ -19,6 +27,7 @@ public class RandomGenerator {
   public int stat() {
     return random.nextInt(10) + 1 + 10;
   }
+
 
   public int hpWarrior() {
     return random.nextInt(10) + 1;

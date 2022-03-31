@@ -17,5 +17,6 @@ public class Mage extends Player {
     setAgility(randomGenerator.stat());
     setLuck(randomGenerator.stat());
     setHitPointsModifier(randomGenerator.hpMage()+(getEndurance()-10)/2);
+    setAc(10 + getEndurance());
   }
 }

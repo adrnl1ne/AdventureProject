@@ -12,6 +12,7 @@ public abstract class Player {
   private int luck;
   private int lvl;
   private int hitPointsModifier;
+  private int ac;
 
   //constructor
   public Player() {
@@ -23,6 +24,14 @@ public abstract class Player {
       currentClass.exp = 0;
       currentClass.hitPointsModifier = currentClass.hitPointsModifier + 9;
     }
+  }
+
+  public void setAc(int ac) {
+    this.ac = ac;
+  }
+
+  public int getAc() {
+    return ac;
   }
 
   public void setLvl(int lvl) {

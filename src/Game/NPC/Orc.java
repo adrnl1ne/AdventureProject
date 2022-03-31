@@ -10,5 +10,6 @@ public class Orc extends Monster {
     setAgility(randomGenerator.stat());
     setHitPointsModifier(10);
     setMonsterHp(getHitPointsModifier());
+    setAc(10 + getEndurance());
   }
 }

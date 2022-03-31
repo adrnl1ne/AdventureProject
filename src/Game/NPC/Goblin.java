@@ -10,5 +10,6 @@ public class Goblin extends Monster{
     setAgility(randomGenerator.stat());
     setHitPointsModifier(6 + ((getEndurance() - 10) / 2));
     setMonsterHp(getHitPointsModifier());
+    setAc(10 + getEndurance());
   }
 }

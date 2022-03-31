@@ -17,6 +17,7 @@ public class Warrior extends Player {
     setAgility(randomGenerator.stat());
     setLuck(randomGenerator.stat());
     setHitPointsModifier(randomGenerator.hpWarrior()+(getEndurance()-10)/2);
+    setAc(10 + getEndurance());
   }
 
 

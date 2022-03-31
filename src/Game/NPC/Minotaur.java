@@ -10,6 +10,7 @@ public class Minotaur extends Monster{
     setAgility(randomGenerator.stat());
     setHitPointsModifier(30 + ((getEndurance() - 10) / 2));
     setMonsterHp(getHitPointsModifier());
+    setAc(10 + getEndurance());
   }
 
 }
