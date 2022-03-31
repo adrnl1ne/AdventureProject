@@ -16,7 +16,7 @@ public class Bard extends Player {
     setIntelligence(randomGenerator.stat());
     setAgility(randomGenerator.stat());
     setLuck(randomGenerator.stat());
-    setHitPointsModifier(randomGenerator.hpBard()+(getEndurance()-10)/2);
+    setHitPoints(randomGenerator.hpBard()+(getEndurance()-10)/2);
     setAc(10 + getEndurance());
   }
 }

@@ -11,18 +11,23 @@ import Game.Player.PlayerClasses.Mage;
 import Game.Player.PlayerClasses.Ranger;
 import Game.Player.PlayerClasses.Warrior;
 
+import java.io.IOException;
 
 
 public class Controller {
-  Interface userInterface;
-  Map map;
-  RoomDecider roomDecider;
-  RandomGenerator randomGenerator;
-  PlayerInfo playerInfo;
-  Encounter encounter;
-  Inventory inventory;
+  Interface userInterface = new Interface();
+  Map map = new Map();
+  RoomDecider roomDecider = new RoomDecider();
+  RandomGenerator randomGenerator = new RandomGenerator();
+  PlayerInfo playerInfo = new PlayerInfo();
+  Encounter encounter = new Encounter();
+  Inventory inventory = new Inventory();
+  Combat combat = new Combat();
 
   boolean isRunning = true;
+
+  public Controller() throws IOException {
+  }
 
   public void run() {
     map.createMap();
@@ -36,11 +41,9 @@ public class Controller {
       map.discoverRoom(map.getCurrentRoom());
       System.out.println(map.getCurrentRoom().getDescription());
       map.exploreChecker();
-      encounter.encounter();
+      //encounter.encounter(combat);
       menu();
-      if (playerInfo.getCurrentClass().getHitPointsModifier() == 0) {
-        isRunning = false;
-      }
+      checkForLive();
     }
   }
 
@@ -48,7 +51,8 @@ public class Controller {
     userInterface.chooseAction();
     switch (userInterface.getIntInput()) {
       case 1 -> travel();
-      case 2 -> System.out.println(map.getCurrentExplore().getDescription());
+      case 2 -> inventory.equip();
+     // case 2 -> System.out.println(map.getCurrentExplore().getDescription());
       case 3 -> map.drawMap();
       case 4 -> playerInfo.checkStats();
       case 5 -> inventory.checkInventory();
@@ -111,6 +115,13 @@ public class Controller {
         inventory.startItemsBard();
       }
 
+    }
+  }
+
+  public void checkForLive() {
+    if (playerInfo.getCurrentClass().getHitPoints() <= 0) {
+      isRunning = false;
+      System.out.println("Game Over");
     }
   }
 }

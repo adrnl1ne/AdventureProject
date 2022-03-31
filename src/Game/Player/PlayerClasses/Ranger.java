@@ -16,7 +16,7 @@ public class Ranger extends Player {
     setIntelligence(randomGenerator.stat());
     setAgility(randomGenerator.stat());
     setLuck(randomGenerator.stat());
-    setHitPointsModifier(randomGenerator.hpRanger()+(getEndurance()-10)/2);
+    setHitPoints(randomGenerator.hpRanger()+(getEndurance()-10)/2);
     setAc(10 + getEndurance());
   }
 }

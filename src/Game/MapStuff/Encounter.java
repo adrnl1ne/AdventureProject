@@ -8,39 +8,43 @@ import Game.RandomGenerator;
 
 public class Encounter {
   private Monster currentMonster;
-  Combat combat;
-  RandomGenerator randomGenerator;
-  PlayerInfo playerInfo;
+  RandomGenerator randomGenerator = new RandomGenerator();
+  PlayerInfo playerInfo = new PlayerInfo();
 
-  public void encounter() {
-    int dice = randomGenerator.hundredSideDice();
-    if (dice > 61 && dice < 70) {
+  public void encounter(Combat combat) {
+    /*int dice = randomGenerator.hundredSideDice();
+    if (dice > 60 && dice < 71) {
       System.out.println("You meet a friendly fairy, that gives you a boost of energy!");
-      playerInfo.getCurrentClass().setHitPointsModifier(+2);
-    } else if (dice > 71 && dice < 80) {
+      playerInfo.getCurrentClass().setHitPoints(+2);
+    } else if (dice > 70 && dice < 81) {
       goblinEncounter();
-    } else if (dice > 81 && dice < 90) {
+    } else if (dice > 80 && dice < 91) {
       orcEncounter();
-    } else if (dice > 91 && dice < 99) {
+    } else if (dice > 90 && dice < 100) {
       trollEncounter();
     } else if (dice == 100) {
       System.out.println("You meet a mighty dragon, that eats you in a single bite!");
-      playerInfo.getCurrentClass().setHitPointsModifier(0);
+      playerInfo.getCurrentClass().setHitPoints(0);
     } else if (dice == 5) {
       minotaurEncounter();
     }
+
+     */
+    goblinEncounter(combat);
   }
 
 
+
+
+  public void goblinEncounter(Combat combat) {
+    System.out.println("You have met a goblin!");
+    setCurrentMonster(new Goblin());
+    combat.combatSystem();
+  }
+/*
   public void minotaurEncounter() {
     System.out.println("You have met the minotaur!");
     setCurrentMonster(new Minotaur());
-    combat.combatSystem();
-  }
-
-  public void goblinEncounter() {
-    System.out.println("You have met a goblin!");
-    setCurrentMonster(new Goblin());
     combat.combatSystem();
   }
 
@@ -55,7 +59,7 @@ public class Encounter {
     setCurrentMonster(new Troll());
     combat.combatSystem();
   }
-
+*/
   public void setCurrentMonster(Monster monster) {
     this.currentMonster = monster;
   }
@@ -63,4 +67,5 @@ public class Encounter {
   public Monster getCurrentMonster() {
     return currentMonster;
   }
+
 }

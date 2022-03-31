@@ -1,13 +1,18 @@
 package Game.Items;
 
 
+import Game.Interface;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Inventory {
-
+  Interface userInterface = new Interface();
+  String placeholder;
 
   HashMap<String, Item> allItems = new HashMap<>();
   HashMap<String, Item> playerInventory = new HashMap<>();
+  HashMap<String, Item> equippedItems = new HashMap<>();
 
 
   public void generateAllItems() {
@@ -66,5 +71,35 @@ public class Inventory {
   public void startItemsBard() {
     playerInventory.put("Dagger", allItems.get("Dagger"));
   }
+
+
+  public void equip() {
+
+    for (String string : playerInventory.keySet()) {
+      System.out.println(string);
+      System.out.println("""
+          Please type in what item you wish to equip
+          """);
+      placeholder = userInterface.getUserInput();
+      if (string.equals(placeholder)) {
+        equippedItems.put(placeholder, playerInventory.get(placeholder));
+        System.out.println("you equipped the item: " + string);
+      } else {
+        System.out.println("you dont have that item!");
+      }
+    }
+  }
+
+  /*public void giveBonusStats() {
+    for (Item i : equippedItems.values()) {
+      if (allItems.values().contains() > 0) {
+        this.ac = currentClass.getAc() + item.getAc();
+      } else if (item.getAttackRoll() > 0) {
+        attackRollWithItem = attackRoll.nextInt(20) + 1 + item.getAttackRoll();
+      } else if (item.getDamage() > 0) {
+        damage = chosenClass.getDamage() + item.getDamage();
+      }
+    }
+  }*/
 
 }

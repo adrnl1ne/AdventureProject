@@ -10,4 +10,11 @@ public class Item {
     this.def = def;
   }
 
+  public int getDef() {
+    return def;
+  }
+
+  public int getDmg() {
+    return dmg;
+  }
 }

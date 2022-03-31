@@ -1,5 +1,9 @@
 package Game.Player;
 
+import Game.Items.Item;
+import Game.MapStuff.Encounter;
+import Game.RandomGenerator;
+
 public abstract class Player {
 
   private int exp;
@@ -11,19 +15,29 @@ public abstract class Player {
   private int intelligence;
   private int luck;
   private int lvl;
-  private int hitPointsModifier;
+  private int hitPoints;
   private int ac;
+  private int acCombat;
 
   //constructor
   public Player() {
   }
 
+
   public void levelPlayer(Player currentClass) {
     if (currentClass.getExp() == 240) {
       currentClass.lvl = currentClass.lvl + 1;
       currentClass.exp = 0;
-      currentClass.hitPointsModifier = currentClass.hitPointsModifier + 9;
+      currentClass.hitPoints = currentClass.hitPoints + 9;
     }
+  }
+
+  public void setAcCombat(int acCombat) {
+    this.acCombat = acCombat;
+  }
+
+  public int getAcCombat() {
+    return acCombat;
   }
 
   public void setAc(int ac) {
@@ -66,8 +80,8 @@ public abstract class Player {
     this.agility = agility;
   }
 
-  public void setHitPointsModifier(int hitPointsModifier) {
-    this.hitPointsModifier = hitPointsModifier;
+  public void setHitPoints(int hitPoints) {
+    this.hitPoints = hitPoints;
   }
 
   public void setLuck(int luck) {
@@ -111,15 +125,15 @@ public abstract class Player {
   }
 
 
-  public int getHitPointsModifier() {
-    return hitPointsModifier;
+  public int getHitPoints() {
+    return hitPoints;
   }
 
 
   @Override
   public String toString() {
     return
-        "Hit Points: " + getHitPointsModifier() +
+        "Hit Points: " + getHitPoints() +
             "\nLevel: " + getLvl() +
             "\nExperience: " + getExp() +
             "\nStrength: " + getStrength() +
@@ -128,7 +142,8 @@ public abstract class Player {
             "\nCharisma: " + getCharisma() +
             "\nIntelligence: " + getIntelligence() +
             "\nAgility: " + getAgility() +
-            "\nLuck: " + getLuck();
+            "\nLuck: " + getLuck() +
+            "\nAC: " + getAc();
   }
 
 }

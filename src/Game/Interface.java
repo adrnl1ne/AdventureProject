@@ -24,7 +24,7 @@ public class Interface {
   }
 
   public String getUserInput() {
-    return input.nextLine().toLowerCase(Locale.ROOT);
+    return input.nextLine();
   }
 
   public void chooseAction() {
@@ -32,7 +32,7 @@ public class Interface {
                 
         What do you want to do?
         1) Travel
-        2) Explore
+        2) Equip items
         3) Look at map
         4) Check Stats
         5) Check Inventory
