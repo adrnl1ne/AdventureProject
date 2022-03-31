@@ -1,6 +1,7 @@
 package Game.MapStuff;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Map {
   EnvironmentGenerator environmentGenerator = new EnvironmentGenerator();
@@ -48,19 +49,7 @@ public class Map {
 
   Room preSpawn = new Room(10, environmentGenerator.theVoid());
 
-  //Explore part
-  Room exploreForest = new Room(1, environmentGenerator.exploreForest1());
-  Room exploreDeepForest = new Room(2, environmentGenerator.exploreDeepForest());
-  Room exploreForest2 = new Room(3, environmentGenerator.exploreForest2());
-  Room exploreLake = new Room(4, environmentGenerator.exploreLake());
-  Room exploreCave = new Room(5, environmentGenerator.exploreCave());
-  Room exploreVillage = new Room(6, environmentGenerator.exploreVillage());
-  Room exploreMeadows = new Room(7, environmentGenerator.exploreMeadows());
-  Room exploreMountains = new Room(8, environmentGenerator.exploreMountains());
-  Room exploreMeadows2 = new Room(9, environmentGenerator.exploreMeadows2());
-
   private Room currentRoom = preSpawn;
-  private Room currentExplore = exploreForest;
 
 
   private String getDiscoveredRoomString(Room room) {
@@ -79,11 +68,6 @@ public class Map {
   public void setCurrentRoom(Room room) {
     this.currentRoom = room;
   }
-
-  public Room getCurrentExplore() {
-    return currentExplore;
-  }
-
 
 
   public void createMap() {
@@ -266,31 +250,6 @@ public class Map {
     }
   }
 
-
-  public void exploreChecker() {
-    if (currentRoom == room1) {
-      currentExplore = exploreForest;
-    } else if (currentRoom == room3) {
-      currentExplore = exploreForest2;
-    } else if (currentRoom == room4) {
-      currentExplore = exploreLake;
-    } else if (currentRoom == room6) {
-      currentExplore = exploreVillage;
-    } else if (currentRoom == room7) {
-      currentExplore = exploreMeadows;
-    } else if (currentRoom == room9) {
-      currentExplore = exploreMeadows2;
-    } else if (currentRoom == room8) {
-      currentExplore = exploreMountains;
-    } else if (currentRoom == room5) {
-      currentExplore = exploreCave;
-    } else if (currentRoom == room2) {
-      currentExplore = exploreDeepForest;
-    }
-  }
-
-
-
   public Room goNorth() {
     if (currentRoom.getNorth() != null) {
       return currentRoom.getNorth();
@@ -340,10 +299,8 @@ public class Map {
 
   public void setMap() {
     //sets all rooms to be undiscovered
-    for (int row = 0; row < map.length; row++) {
-      for (int col = 0; col < map[row].length; col++) {
-        map[row][col] = undiscoveredRoomString;
-      }
+    for (String[] strings : map) {
+      Arrays.fill(strings, undiscoveredRoomString);
     }
   }
 

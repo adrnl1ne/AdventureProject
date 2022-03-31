@@ -40,7 +40,6 @@ public class Controller {
     while (isRunning) {
       map.discoverRoom(map.getCurrentRoom());
       System.out.println(map.getCurrentRoom().getDescription());
-      map.exploreChecker();
       //encounter.encounter(combat);
       menu();
       checkForLive();
