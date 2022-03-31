@@ -14,12 +14,16 @@ public class Interface {
     System.out.println("""
         Welcome to the AMAZING GAME OF ADVENTURE TIME!
         please choose what you would like to do
-        1) Embark on your epic adventure 
-        2) End your adventure 
-        3) help menu");        
+        1) Embark on your epic adventure
+        2) End your adventure
+        3) Help menu");        
         """);
     //introInput = input.nextInt();
     //startMenu();
+  }
+
+  public int getIntInput() {
+    return input.nextInt();
   }
 
   public String getUserInput() {
@@ -58,11 +62,10 @@ public class Interface {
         Before we start, dear adventurer
         Please choose your class!
                 
-        Classes:
-        Warrior
-        Mage
-        Ranger
-        Bard
+         1) The mighty warrior
+         2) The magnificent wizard
+         3) The noble ranger
+         4) The daring bard
         """);
   }
 

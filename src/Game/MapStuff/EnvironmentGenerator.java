@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class EnvironmentGenerator {
+public class  EnvironmentGenerator {
   Path forest = Path.of("Rooms\\forest.txt");
   Path deepForest = Path.of("Rooms\\deepForest.txt");
   Path cave = Path.of("Rooms\\cave.txt");

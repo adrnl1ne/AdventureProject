@@ -8,11 +8,31 @@ public class Room {
   private Room south;
   private Room east;
   private Room west;
+  private boolean visitedRoom = false;
+
+  private int X;
+  private int Y;
 
   //constructor
   public Room(int number, String description) {
     this.number = number;
     this.description = description;
+  }
+
+  public void setX(int X) {
+    this.X = X;
+  }
+
+  public void setY(int Y) {
+    this.Y = Y;
+  }
+
+  public int getX() {
+    return X;
+  }
+
+  public int getY() {
+    return Y;
   }
 
   public void setNorth(Room north) {
@@ -56,7 +76,16 @@ public class Room {
     return number;
   }
 
+  //getter and setter for visiting rooms
+  public boolean isVisitedRoom()
+  {
+    return visitedRoom;
+  }
 
+  public void setVisitedRoom(boolean visitedRoom)
+  {
+    this.visitedRoom = visitedRoom;
+  }
 
 }
 

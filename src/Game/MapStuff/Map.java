@@ -3,8 +3,13 @@ package Game.MapStuff;
 import java.io.IOException;
 
 public class Map {
-
   EnvironmentGenerator environmentGenerator = new EnvironmentGenerator();
+
+  String[][] map = new String[11][9];
+  String discoveredRoomString = "| |";
+  String undiscoveredRoomString = "   ";
+
+
 
   Room room1 = new Room(1, environmentGenerator.forest());
   Room room2 = new Room(2, environmentGenerator.deepForest());
@@ -48,7 +53,7 @@ public class Map {
   Room exploreDeepForest = new Room(2, environmentGenerator.exploreDeepForest());
   Room exploreForest2 = new Room(3, environmentGenerator.exploreForest2());
   Room exploreLake = new Room(4, environmentGenerator.exploreLake());
-  Room exploreCave = new Room(5,environmentGenerator.exploreCave());
+  Room exploreCave = new Room(5, environmentGenerator.exploreCave());
   Room exploreVillage = new Room(6, environmentGenerator.exploreVillage());
   Room exploreMeadows = new Room(7, environmentGenerator.exploreMeadows());
   Room exploreMountains = new Room(8, environmentGenerator.exploreMountains());
@@ -56,6 +61,12 @@ public class Map {
 
   private Room currentRoom = preSpawn;
   Room currentExplore = exploreForest;
+
+
+  private String getDiscoveredRoomString(Room room) {
+    return String.format("|%d|", room.getNumber());
+  }
+
 
   public Map() throws IOException {
   }
@@ -73,104 +84,171 @@ public class Map {
     return currentExplore;
   }
 
+
+
   public void createMap() {
     //Room1
     room1.setEast(room2);
     room1.setSouth(room4);
+    room1.setX(4);
+    room1.setY(6);
     //Room2
     room2.setEast(room3);
     room2.setWest(room1);
+    room2.setX(4);
+    room2.setY(7);
     //Room3
     room3.setSouth(room6);
     room3.setWest(room2);
+    room3.setX(4);
+    room3.setY(8);
     //Room4
     room4.setNorth(room1);
     room4.setSouth(room7);
+    room4.setX(5);
+    room4.setY(6);
     //Room5
     room5.setSouth(room8);
+    room5.setX(5);
+    room5.setY(7);
     //Room6
     room6.setNorth(room3);
-    //cave.setEast(null);
     room6.setSouth(room9);
+    room6.setX(5);
+    room6.setY(8);
     //Room7
     room7.setNorth(room4);
     room7.setEast(room8);
+    room7.setY(6);
+    room7.setY(6);
     //Room8
     room8.setNorth(room5);
     room8.setEast(room9);
     room8.setWest(room7);
+    room8.setX(6);
+    room8.setY(7);
     //Room9
     room9.setNorth(room6);
     room9.setWest(room8);
     room9.setEast(room31);
+    room9.setX(6);
+    room9.setY(8);
     //Room10
     room10.setNorth(room11);
+    room10.setX(3);
+    room10.setY(8);
     //Room11 room is dark, use random gen if no torch
     room11.setNorth(room13);
     room11.setSouth(room10);
     room11.setWest(room14);
     room11.setEast(room12);
+    room11.setX(2);
+    room11.setY(8);
     //Room12
     room12.setNorth(room16);
+    room12.setX(2);
+    room12.setY(9);
     //Room13
     room13.setNorth(room17);
     room13.setSouth(room11);
     room13.setWest(room15);
     room13.setEast(room16);
+    room13.setX(1);
+    room13.setY(8);
     //Room14
     room14.setNorth(room15);
+    room14.setX(2);
+    room14.setY(7);
     //Room15
     room15.setEast(room13);
+    room15.setX(6);
+    room15.setY(2);
     //Room16
     room16.setWest(room13);
+    room16.setX(8);
+    room16.setY(2);
     //Room17
     room17.setSouth(room13);
     room17.setEast(room18);
+    room17.setX(0);
+    room17.setY(8);
     //Room18
     room18.setWest(room17);
     room18.setSouth(room3);
+    room18.setX(0);
+    room18.setY(10);
     //Room19 entrance to dungeon
     room19.setWest(room20);
     room19.setWest(room4);
+    room19.setX(6);
+    room19.setY(5);
     //Room20
     room20.setNorth(room21);
     room20.setWest(room31);
+    room20.setX(6);
+    room20.setY(4);
     //Room21
     room21.setNorth(room22);
     room21.setSouth(room20);
+    room21.setX(5);
+    room21.setY(4);
     //Room22
     room22.setSouth(room21);
     room22.setWest(room23);
+    room22.setX(4);
+    room22.setY(4);
     //Room23
     room23.setWest(room24);
     room23.setEast(room22);
+    room23.setX(4);
+    room23.setY(3);
     //Room24
     room24.setWest(room25);
     room24.setEast(room23);
+    room24.setX(4);
+    room24.setY(2);
     //Room25
     room25.setSouth(room26);
     room25.setEast(room24);
+    room25.setX(4);
+    room25.setY(1);
     //Room26 bossRoom/fight
     room26.setNorth(room25);
     room26.setSouth(room28);
     room26.setWest(room27);
+    room26.setX(5);
+    room26.setY(1);
     //Room27
     room27.setEast(room26);
+    room27.setX(5);
+    room27.setY(0);
     //Room28
     room28.setNorth(room26);
     room28.setEast(room29);
+    room28.setX(6);
+    room28.setY(1);
     //Room29
     room29.setEast(room30);
     room29.setWest(room28);
+    room29.setX(6);
+    room29.setY(2);
     //Room30
     room30.setEast(room20);
     room30.setWest(room29);
+    room30.setX(6);
+    room30.setY(3);
     //Room31
     room31.setSouth(room32);
+    room31.setX(6);
+    room31.setY(9);
     //Room32
     room32.setWest(room33);
+    room32.setX(7);
+    room32.setY(10);
     //Room33
     room33.setNorth(room9);
+    room33.setX(7);
+    room33.setY(8);
 
     //Room Void
     preSpawn.setNorth(room1);
@@ -180,6 +258,13 @@ public class Map {
   }
 
 
+
+  public void discoverRoom(Room room) {
+    if (!room.isVisitedRoom()){
+      room.setVisitedRoom(true);
+      map[room.getX()][room.getY()] = getDiscoveredRoomString(room);
+    }
+  }
 
 
   public void exploreChecker() {
@@ -203,6 +288,7 @@ public class Map {
       currentExplore = exploreDeepForest;
     }
   }
+
 
 
   public Room goNorth() {
@@ -241,5 +327,24 @@ public class Map {
     }
   }
 
+
+
+  public void drawMap() {
+    for (String[] rows : map) {
+      for (String room : rows) {
+        System.out.print(room + " ");
+      }
+      System.out.println();
+    }
+  }
+
+  public void setMap() {
+    //sets all rooms to be undiscovered
+    for (int row = 0; row < map.length; row++) {
+      for (int col = 0; col < map[row].length; col++) {
+        map[row][col] = undiscoveredRoomString;
+      }
+    }
+  }
 
 }

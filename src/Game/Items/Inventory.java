@@ -5,26 +5,42 @@ import java.util.HashMap;
 
 public class Inventory {
 
-  // TODO: 25-03-2022 convert arraylist to hashmap
-  public HashMap<String, Item> allItems = new HashMap<>();
-  public HashMap<String, Item> playerInventory = new HashMap<>();
+
+  HashMap<String, Item> allItems = new HashMap<>();
+  HashMap<String, Item> playerInventory = new HashMap<>();
 
 
   public void generateAllItems() {
 
 
-    Weapon longSword = new Weapon(2, 0);
-    Weapon orbOfFire = new Weapon(2, 0);
+    Weapon longSword = new Weapon(4, 0);
+    Weapon orbOfFire = new Weapon(4, 0);
     Weapon longbow = new Weapon(2, 0);
     Weapon dagger = new Weapon(2, 0);
+    Weapon wand = new Weapon(3, 0);
+    Weapon axe = new Weapon(2, 0);
+    Armor steelArmor = new Armor(0, 4);
     Armor shield = new Armor(0, 2);
+    Util torch = new Util(0, 0);
+    Util luckyCoin = new Util(1, 0);
+    Util orbOfLight = new Util(0, 1);
+    Util loafOfBread = new Util(0, 0);
+    Util brokenArrow = new Util(0, 0);
 
-    allItems.put("longsword", longSword);
-    allItems.put("orbOfFire", orbOfFire);
-    allItems.put("longbow", longbow);
-    allItems.put("dagger", dagger);
-    allItems.put("shield", shield);
 
+    allItems.put("Longsword", longSword);
+    allItems.put("Orb Of Fire", orbOfFire);
+    allItems.put("Longbow", longbow);
+    allItems.put("Dagger", dagger);
+    allItems.put("Wand", wand);
+    allItems.put("Shield", shield);
+    allItems.put("Axe", axe);
+    allItems.put("Steel Armor", steelArmor);
+    allItems.put("Torch", torch);
+    allItems.put("Lucky Coin", luckyCoin);
+    allItems.put("Orb Of Light", orbOfLight);
+    allItems.put("Loaf Of Bread", loafOfBread);
+    allItems.put("Broken Arrow", brokenArrow);
   }
 
 
@@ -40,7 +56,7 @@ public class Inventory {
   }
 
   public void startItemsMage() {
-    playerInventory.put("OrbOfFire", allItems.get("OrbOfFire"));
+    playerInventory.put("Orb Of Fire", allItems.get("Orb Of Fire"));
   }
 
   public void startItemsRanger() {
