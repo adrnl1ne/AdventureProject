@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class Interface {
   Scanner input = new Scanner(System.in);
-  private int introInput;
 
   public void greetPlayer() {
     // TODO: 29-03-2022 implement background music
@@ -16,10 +15,8 @@ public class Interface {
         please choose what you would like to do
         1) Embark on your epic adventure
         2) End your adventure
-        3) Help menu");        
+        3) Help menu"   
         """);
-    //introInput = input.nextInt();
-    //startMenu();
   }
 
   public int getIntInput() {
@@ -34,12 +31,13 @@ public class Interface {
     System.out.println("""
                 
         What do you want to do?
-        Check Stats
-        Check Inventory
-        Explore
-        Travel
-        Help
-        Exit
+        1) Travel
+        2) Explore
+        3) Look at map
+        4) Check Stats
+        5) Check Inventory
+        6) Help
+        7) Exit
         """);
     //System.out.println("Rest");
   }
@@ -67,12 +65,6 @@ public class Interface {
          3) The noble ranger
          4) The daring bard
         """);
-  }
-
-
-  public void startMenu() {
-    /*switch (introInput) {
-      case 1 ->*/
   }
 
 

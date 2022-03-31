@@ -60,7 +60,7 @@ public class Map {
   Room exploreMeadows2 = new Room(9, environmentGenerator.exploreMeadows2());
 
   private Room currentRoom = preSpawn;
-  Room currentExplore = exploreForest;
+  private Room currentExplore = exploreForest;
 
 
   private String getDiscoveredRoomString(Room room) {

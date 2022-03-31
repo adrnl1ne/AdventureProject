@@ -31,7 +31,7 @@ public class Controller {
     map.createMap();
     inventory.generateAllItems();
     userInterface.greetPlayer();
-    chooseClass();
+    startMenu();
     roomDecider.chooseRoom(randomGenerator);
     map.setMap();
     startingRoom(map.getCurrentRoom());
@@ -39,6 +39,7 @@ public class Controller {
       map.discoverRoom(map.getCurrentRoom());
       System.out.println(map.getCurrentRoom().getDescription());
       map.exploreChecker();
+      encounter.encounter();
       menu();
     }
   }
@@ -47,7 +48,7 @@ public class Controller {
     userInterface.chooseAction();
     switch (userInterface.getIntInput()) {
       case 1 -> travel();
-      case 2 -> encounter.encounter(map);
+      case 2 -> System.out.println(map.getCurrentExplore().getDescription());
       case 3 -> map.drawMap();
       case 4 -> playerInfo.checkStats();
       case 5 -> inventory.checkInventory();
@@ -56,6 +57,14 @@ public class Controller {
     }
   }
 
+
+  public void startMenu() {
+    switch (userInterface.getIntInput()) {
+      case 1 -> chooseClass();
+      case 2 -> isRunning = false;
+      case 3 -> userInterface.help();
+    }
+  }
 
   public void travel() {
     System.out.println("""

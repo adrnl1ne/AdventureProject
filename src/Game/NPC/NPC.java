@@ -2,12 +2,14 @@ package Game.NPC;
 
 public class NPC {
 
-  private int hp;
   private int strength;
   private int endurance;
   private int agility;
   private int intelligence;
   private int lvl;
+  private int hitPointsModifier;
+  private int ac;
+  private int monsterHp;
 
   public NPC() {
   }
@@ -16,8 +18,9 @@ public class NPC {
     this.lvl = lvl;
   }
 
-  public void setHp(int hp) {
-    this.hp = hp;
+  public void setHitPointsModifier(int hitPointsModifier)
+  {
+    this.hitPointsModifier = hitPointsModifier;
   }
 
   public void setStrength(int strength) {
@@ -36,12 +39,20 @@ public class NPC {
     this.intelligence = intelligence;
   }
 
-  public int getLvl() {
-    return lvl;
+  public void setAc(int ac) {
+    this.ac = ac;
   }
 
-  public int getHp() {
-    return hp;
+  public void setMonsterHp(int monsterHp) {
+    this.monsterHp = monsterHp;
+  }
+
+  public int getMonsterHp() {
+    return monsterHp;
+  }
+
+  public int getLvl() {
+    return lvl;
   }
 
   public int getStrength() {
@@ -60,9 +71,18 @@ public class NPC {
     return intelligence;
   }
 
+  public int getHitPointsModifier()
+  {
+    return hitPointsModifier;
+  }
+
+  public int getAc() {
+    return ac;
+  }
+
   @Override
   public String toString() {
-    return "Hit Points: " + getHp() +
+    return "Hit Points: " + getHitPointsModifier() +
         "\nLevel: " + getLvl() +
         "\nStrength: " + getStrength() +
         "\nEndurance: " + getEndurance() +
