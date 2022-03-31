@@ -20,6 +20,10 @@ public class RandomGenerator {
     return random.nextInt(8) + 1;
   }
 
+  public int hundredSideDice() {
+    return random.nextInt(100) +1;
+  }
+
   public void rollForRoom() {
     dice = random.nextInt(4) + 1;
   }

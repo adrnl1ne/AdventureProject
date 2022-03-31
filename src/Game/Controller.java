@@ -11,21 +11,18 @@ import Game.Player.PlayerClasses.Mage;
 import Game.Player.PlayerClasses.Ranger;
 import Game.Player.PlayerClasses.Warrior;
 
-import java.io.IOException;
+
 
 public class Controller {
-  Interface userInterface = new Interface();
-  Map map = new Map();
-  RoomDecider roomDecider = new RoomDecider();
-  RandomGenerator randomGenerator = new RandomGenerator();
-  PlayerInfo playerInfo = new PlayerInfo();
-  Encounter encounter = new Encounter();
-  Inventory inventory = new Inventory();
+  Interface userInterface;
+  Map map;
+  RoomDecider roomDecider;
+  RandomGenerator randomGenerator;
+  PlayerInfo playerInfo;
+  Encounter encounter;
+  Inventory inventory;
 
   boolean isRunning = true;
-
-  public Controller() throws IOException {
-  }
 
   public void run() {
     map.createMap();
@@ -41,6 +38,9 @@ public class Controller {
       map.exploreChecker();
       encounter.encounter();
       menu();
+      if (playerInfo.getCurrentClass().getHitPointsModifier() == 0) {
+        isRunning = false;
+      }
     }
   }
 

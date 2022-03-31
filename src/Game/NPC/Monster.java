@@ -15,4 +15,7 @@ public class Monster extends NPC {
     setAc(10 + getEndurance());
     setMonsterHp(getHitPointsModifier());
   }
+
+
+
 }

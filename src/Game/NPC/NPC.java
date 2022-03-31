@@ -80,6 +80,8 @@ public class NPC {
     return ac;
   }
 
+
+
   @Override
   public String toString() {
     return "Hit Points: " + getHitPointsModifier() +
