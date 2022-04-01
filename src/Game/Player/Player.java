@@ -32,13 +32,6 @@ public abstract class Player {
     }
   }
 
-  public void setAcCombat(int acCombat) {
-    this.acCombat = acCombat;
-  }
-
-  public int getAcCombat() {
-    return acCombat;
-  }
 
   public void setAc(int ac) {
     this.ac = ac;

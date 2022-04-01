@@ -11,8 +11,9 @@ public class NPC {
   private int ac;
   private int monsterHp;
 
+  //Constructor
   public NPC() {
-  }
+      }
 
   public void setLvl(int lvl) {
     this.lvl = lvl;

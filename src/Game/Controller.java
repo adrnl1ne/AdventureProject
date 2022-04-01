@@ -23,6 +23,7 @@ public class Controller {
   Encounter encounter = new Encounter();
   Inventory inventory = new Inventory();
   Combat combat = new Combat();
+  Music music = new Music();
 
   boolean isRunning = true;
 
@@ -30,6 +31,7 @@ public class Controller {
   }
 
   public void run() {
+    music.playMusic();
     map.createMap();
     inventory.generateAllItems();
     userInterface.greetPlayer();
@@ -40,7 +42,7 @@ public class Controller {
     while (isRunning) {
       map.discoverRoom(map.getCurrentRoom());
       System.out.println(map.getCurrentRoom().getDescription());
-      //encounter.encounter(combat);
+      encounter.encounter(combat, playerInfo);
       menu();
       checkForLive();
     }
@@ -51,7 +53,6 @@ public class Controller {
     switch (userInterface.getIntInput()) {
       case 1 -> travel();
       case 2 -> inventory.equip();
-     // case 2 -> System.out.println(map.getCurrentExplore().getDescription());
       case 3 -> map.drawMap();
       case 4 -> playerInfo.checkStats();
       case 5 -> inventory.checkInventory();

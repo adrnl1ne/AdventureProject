@@ -5,12 +5,13 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.io.File;
-
 public class Music {
-    //First background music (?)
-    void playMusic() {
+
+
+  //First background music (?)
+    public void playMusic() {
       try {
-        String musicLocation = "musik.wav";
+        String musicLocation = "Music\\lofi.wav";
         File musicPath = new File(musicLocation);
         if (musicPath.exists()) {
           AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);

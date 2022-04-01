@@ -6,14 +6,14 @@ import Game.Player.PlayerInfo;
 
 public class Combat {
   RandomGenerator randomGenerator = new RandomGenerator();
-  Encounter encounter = new Encounter();
-  PlayerInfo playerInfo = new PlayerInfo();
+  Interface userInterface = new Interface();
   boolean combatInProgress = true;
 
 
-  public void monsterAttack() {
+  public void monsterAttack(PlayerInfo playerInfo, Encounter encounter) {
     int attackRoll = randomGenerator.twentySideDice();
     System.out.println("player AC " + playerInfo.getCurrentClass().getAc());
+    System.out.println(encounter.getCurrentMonster().getAc());
     if (attackRoll > playerInfo.getCurrentClass().getAc()) {
       int damage = randomGenerator.callRoomDice() + (encounter.getCurrentMonster().getStrength() - 10);
       playerInfo.getCurrentClass().setHitPoints(playerInfo.getCurrentClass().getHitPoints() - damage);
@@ -23,7 +23,7 @@ public class Combat {
 
   }
 
-  public void playerAttack() {
+  public void playerAttack(PlayerInfo playerInfo, Encounter encounter) {
     int attackRoll = randomGenerator.twentySideDice() + 11;
     System.out.println("Your attack was: " + attackRoll);
     if (attackRoll > encounter.getCurrentMonster().getAc()) {
@@ -35,9 +35,9 @@ public class Combat {
     }
   }
 
-  public void combatSystem() {
+  public void combatSystem(PlayerInfo playerInfo, Encounter encounter) {
     System.out.println("you've encountered a monster!!! get ready for battle!");
-    Interface userInterface = new Interface();
+
 
     while (combatInProgress) {
       System.out.println("""
@@ -47,7 +47,7 @@ public class Combat {
           """);
       switch (userInterface.getIntInput()) {
         case 1 -> System.out.println("eating");
-        case 2 -> playerAttack();
+        case 2 -> playerAttack(playerInfo, encounter);
       }
       if (encounter.getCurrentMonster().getMonsterHp() <= 0) {
         System.out.println("monster is dead");
@@ -56,7 +56,7 @@ public class Combat {
         System.out.println("you have died!");
         combatInProgress = false;
       } else {
-        monsterAttack();
+        monsterAttack(playerInfo, encounter);
       }
 
     }

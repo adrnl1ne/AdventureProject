@@ -7,59 +7,58 @@ import Game.RandomGenerator;
 
 
 public class Encounter {
-  private Monster currentMonster;
+  private Monster currentMonster = new Monster();
   RandomGenerator randomGenerator = new RandomGenerator();
-  PlayerInfo playerInfo = new PlayerInfo();
 
-  public void encounter(Combat combat) {
-    /*int dice = randomGenerator.hundredSideDice();
+  public void encounter(Combat combat, PlayerInfo playerInfo) {
+    int dice = randomGenerator.hundredSideDice();
     if (dice > 60 && dice < 71) {
       System.out.println("You meet a friendly fairy, that gives you a boost of energy!");
       playerInfo.getCurrentClass().setHitPoints(+2);
     } else if (dice > 70 && dice < 81) {
-      goblinEncounter();
+      goblinEncounter(combat, playerInfo);
     } else if (dice > 80 && dice < 91) {
-      orcEncounter();
+      orcEncounter(combat, playerInfo);
     } else if (dice > 90 && dice < 100) {
-      trollEncounter();
+      trollEncounter(combat, playerInfo);
     } else if (dice == 100) {
       System.out.println("You meet a mighty dragon, that eats you in a single bite!");
       playerInfo.getCurrentClass().setHitPoints(0);
     } else if (dice == 5) {
-      minotaurEncounter();
+      minotaurEncounter(combat, playerInfo);
     }
 
-     */
-    goblinEncounter(combat);
+
+
   }
 
 
 
 
-  public void goblinEncounter(Combat combat) {
+  public void goblinEncounter(Combat combat, PlayerInfo playerInfo) {
     System.out.println("You have met a goblin!");
     setCurrentMonster(new Goblin());
-    combat.combatSystem();
+    combat.combatSystem(playerInfo,this);
   }
-/*
-  public void minotaurEncounter() {
+
+  public void minotaurEncounter(Combat combat, PlayerInfo playerInfo) {
     System.out.println("You have met the minotaur!");
     setCurrentMonster(new Minotaur());
-    combat.combatSystem();
+    combat.combatSystem(playerInfo,this);
   }
 
-  public void orcEncounter() {
+  public void orcEncounter(Combat combat, PlayerInfo playerInfo) {
     System.out.println("You have met an orc!");
     setCurrentMonster(new Orc());
-    combat.combatSystem();
+    combat.combatSystem(playerInfo,this);
   }
 
-  public void trollEncounter() {
+  public void trollEncounter(Combat combat, PlayerInfo playerInfo) {
     System.out.println("You have met a troll!");
     setCurrentMonster(new Troll());
-    combat.combatSystem();
+    combat.combatSystem(playerInfo,this);
   }
-*/
+
   public void setCurrentMonster(Monster monster) {
     this.currentMonster = monster;
   }

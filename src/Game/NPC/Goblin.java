@@ -4,7 +4,7 @@ public class Goblin extends Monster{
 
   public Goblin() {
     super();
-    setStrength(6 );
+    setStrength(6);
     setEndurance(6);
     setIntelligence(randomGenerator.stat());
     setAgility(randomGenerator.stat());
